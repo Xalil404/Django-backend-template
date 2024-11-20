@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'home',
+    'rest_framework',  # For Django REST Framework
 ]
 
 SITE_ID = 1
