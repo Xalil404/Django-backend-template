@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('Profile', '0001_initial'),
+        ('ProfileAPI', '0001_initial'),
     ]
 
     operations = [

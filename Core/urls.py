@@ -21,7 +21,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
-    path('api/profile/', include('Profile.urls')),
+    path('api/', include('ProfileAPI.urls')),
 ]
 handler404 = 'Core.views.handler404'
 

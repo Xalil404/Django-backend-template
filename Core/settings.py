@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'home',
-    'Profile',
+    'ProfileAPI',
     'rest_framework',  # For Django REST Framework
 ]
 
