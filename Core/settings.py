@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'home',
     'ProfileAPI',
     'rest_framework',  # For Django REST Framework
+    'drf_yasg', # To generate swagger & redo docs
 ]
 
 SITE_ID = 1
