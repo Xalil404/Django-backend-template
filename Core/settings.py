@@ -28,8 +28,8 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'SECRET_KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-DEBUG = False
+DEBUG = True
+#DEBUG = False
 
 ALLOWED_HOSTS = [
     'django-backend-template-c4624bfe6451.herokuapp.com', 
@@ -55,8 +55,9 @@ INSTALLED_APPS = [
     'ProfileAPI',
     'TasksAPI',
     'Contact',
-    'rest_framework',  # For Django REST Framework
+    'rest_framework',  # For Django REST Framework API URLs
     'drf_yasg', # To generate swagger & redo docs
+    'corsheaders', # To allow React app (running on a different port, e.g., localhost:3000) to communicate with Django backend (which might be running on localhost:8000), you need to configure CORS
 ]
 
 SITE_ID = 1
@@ -64,6 +65,7 @@ SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -71,6 +73,16 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+# Allow All Origins (For Development)
+CORS_ALLOW_ALL_ORIGINS = True
+
+# For production, restrict this to specific domains
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # React local development server
+    "https://yourfrontenddomain.com",  # Your deployed React app
+]
+
 
 ROOT_URLCONF = 'Core.urls'
 
