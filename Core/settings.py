@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'home',
     'ProfileAPI',
+    'TasksAPI',
     'rest_framework',  # For Django REST Framework
     'drf_yasg', # To generate swagger & redo docs
 ]

@@ -5,18 +5,18 @@
             <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
         </li>
         <li class="nav-item mx-2">
-            <a class="nav-link active" href="">Swagger</a>
-        </li>
-        <li class="nav-item mx-2">
-            <a class="nav-link active" href="">Redoc</a>
-        </li>
-
-        {% if user.is_authenticated %}
-        <li class="nav-item mx-2">
             <a class="nav-link active" href="">Link 1</a>
         </li>
         <li class="nav-item mx-2">
             <a class="nav-link active" href="">Link 2</a>
+        </li>
+
+        {% if user.is_authenticated %}
+        <li class="nav-item mx-2">
+            <a class="nav-link active" href="https://django-backend-template-c4624bfe6451.herokuapp.com/swagger/" target="_blank">Swagger</a>
+        </li>
+        <li class="nav-item mx-2">
+            <a class="nav-link active" href="https://django-backend-template-c4624bfe6451.herokuapp.com/redoc/" target="_blank">Redoc</a>
         </li>
         {% endif %}
     </ul>
