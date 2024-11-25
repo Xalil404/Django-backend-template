@@ -15,37 +15,13 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
-# For Firebase
-import firebase_admin
-from firebase_admin import credentials
-
-# Get Firebase credentials from environment variables
-FIREBASE_PROJECT_ID = os.getenv('FIREBASE_PROJECT_ID')
-FIREBASE_PRIVATE_KEY = os.getenv('FIREBASE_PRIVATE_KEY').replace('\\n', '\n')  # Fix newline characters
-FIREBASE_CLIENT_EMAIL = os.getenv('FIREBASE_CLIENT_EMAIL')
-
-# Set up Firebase Admin SDK
-cred = credentials.Certificate({
-    "type": "service_account",
-    "project_id": FIREBASE_PROJECT_ID,
-    "private_key_id": "<your private key id>",  # Optional, you may skip this if it’s in the key file
-    "private_key": FIREBASE_PRIVATE_KEY,
-    "client_email": FIREBASE_CLIENT_EMAIL,
-    "client_id": "<your client id>",  # Optional
-    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-    "token_uri": "https://oauth2.googleapis.com/token",
-    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-    "client_x509_cert_url": "<your certificate URL>",  # Optional
-})
-
-# Initialize Firebase Admin SDK
-firebase_admin.initialize_app(cred)
 
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+
 
 
 
@@ -80,8 +56,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'home',
-    'ProfileAPI',
-    'TasksAPI',
     'Contact',
     'rest_framework',  # For Django REST Framework API URLs
     'drf_yasg', # To generate swagger & redo docs
@@ -108,7 +82,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 # For production, restrict this to specific domains
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # React local development server
-    "https://yourfrontenddomain.com",  # Your deployed React app
+    "https://web-frontend-template-eta.vercel.app",  # Your deployed React app
 ]
 
 
