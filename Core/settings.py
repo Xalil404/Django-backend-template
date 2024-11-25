@@ -15,6 +15,31 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
+import firebase_admin
+from firebase_admin import credentials
+
+
+AUTH_USER_MODEL = 'auth.User'  # Using default Django User model
+
+# Get Firebase credentials from environment variables
+firebase_credentials = {
+    "type": "service_account",
+    "project_id": os.getenv('FIREBASE_PROJECT_ID'),
+    "private_key_id": "631b33dc996beed17d28dbb6572b4fe32ad02791",
+    "private_key": os.getenv('FIREBASE_PRIVATE_KEY'),
+    "client_email": os.getenv('FIREBASE_CLIENT_EMAIL'),
+    "client_id": "110523821352953414339",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-rqxzo%40web-frontend-template.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+}
+
+# Initialize Firebase Admin SDK
+if not firebase_admin._apps:
+    cred = credentials.Certificate(firebase_credentials)
+    firebase_admin.initialize_app(cred)
 
 
 
@@ -57,6 +82,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'home',
     'Contact',
+    'ProfileAPI',
     'rest_framework',  # For Django REST Framework API URLs
     'drf_yasg', # To generate swagger & redo docs
     'corsheaders', # To allow React app (running on a different port, e.g., localhost:3000) to communicate with Django backend (which might be running on localhost:8000), you need to configure CORS
