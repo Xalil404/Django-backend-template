@@ -24,9 +24,9 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Profile API",
+        title="Template Project API",
         default_version='v1',
-        description="API endpoints for managing user profiles",
+        description="API endpoints for managing template project",
         terms_of_service="https://www.google.com/policies/terms/",
         contact=openapi.Contact(email="support@yourapi.com"),
         license=openapi.License(name="BSD License"),
