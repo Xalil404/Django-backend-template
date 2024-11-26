@@ -26,7 +26,7 @@ firebase_credentials = {
     "type": "service_account",
     "project_id": os.getenv('FIREBASE_PROJECT_ID'),
     "private_key_id": "631b33dc996beed17d28dbb6572b4fe32ad02791",
-    "private_key": os.getenv('FIREBASE_PRIVATE_KEY'),
+    "private_key": os.getenv('FIREBASE_PRIVATE_KEY').replace('\\n', '\n'),
     "client_email": os.getenv('FIREBASE_CLIENT_EMAIL'),
     "client_id": "110523821352953414339",
     "auth_uri": "https://accounts.google.com/o/oauth2/auth",
@@ -35,6 +35,7 @@ firebase_credentials = {
     "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-rqxzo%40web-frontend-template.iam.gserviceaccount.com",
     "universe_domain": "googleapis.com"
 }
+
 
 # Initialize Firebase Admin SDK
 if not firebase_admin._apps:
