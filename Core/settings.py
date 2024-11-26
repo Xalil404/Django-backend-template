@@ -36,6 +36,8 @@ firebase_credentials = {
     "universe_domain": "googleapis.com"
 }
 
+# Set the path to your Firebase credentials file in the root directory
+firebase_credentials_path = 'firebase_credentials.json'
 
 # Initialize Firebase Admin SDK
 if not firebase_admin._apps:
@@ -58,8 +60,8 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'SECRET_KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-DEBUG = False
+DEBUG = True
+#DEBUG = False
 
 ALLOWED_HOSTS = [
     'django-backend-template-c4624bfe6451.herokuapp.com', 
