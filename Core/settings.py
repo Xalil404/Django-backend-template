@@ -34,7 +34,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'django-backend-template-c4624bfe6451.herokuapp.com', 
     '127.0.0.1', 
-    'localhost'
+    'localhost',
+    'web-frontend-template-eta.vercel.app'
 ]
 
 
@@ -137,6 +138,12 @@ else:
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+
+#For password reset email
+DJANGO_REST_AUTH = {
+    'PASSWORD_RESET_CONFIRM_URL': 'password-reset/confirm/{uid}/{token}/',
+}
+
 
 
 AUTHENTICATION_BACKENDS = (
