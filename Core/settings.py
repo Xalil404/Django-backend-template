@@ -112,9 +112,11 @@ WSGI_APPLICATION = 'Core.wsgi.application'
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = True
+ACCOUNT_LOGOUT_ON_GET = True
 
 # Automatically confirm email (optional)
-ACCOUNT_EMAIL_VERIFICATION = 'optional'  # Options: "mandatory", "optional", or "none"
+ACCOUNT_EMAIL_VERIFICATION = 'none'  # Options: "mandatory", "optional", or "none"
 
 # Redirect after login/logout (customize as needed)
 LOGIN_REDIRECT_URL = '/'
