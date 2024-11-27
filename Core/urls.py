@@ -23,11 +23,6 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 # For passowrd reset function
 from django.contrib.auth import views as auth_views
-from django.urls import reverse
-
-# Generate the full URL for password reset
-reset_url = reverse('password_reset_confirm', kwargs={'uidb64': uid, 'token': token})
-full_url = f"https://web-frontend-template-eta.vercel.app{reset_url}"
 
 
 schema_view = get_schema_view(

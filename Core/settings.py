@@ -146,7 +146,6 @@ DJANGO_REST_AUTH = {
 
 
 
-
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',  # Default authentication
     'allauth.account.auth_backends.AuthenticationBackend',  # Required for allauth
