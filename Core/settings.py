@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',  # Required for social login (optional)
 ]
 
+
 SITE_ID = 1
 
 MIDDLEWARE = [
