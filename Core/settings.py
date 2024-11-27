@@ -142,13 +142,7 @@ else:
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
-#For password reset email
-DJANGO_REST_AUTH = {
-    'PASSWORD_RESET_CONFIRM_URL': 'https://web-frontend-template-eta.vercel.app/password-reset/confirm/{uid}/{token}/',
-}
 
-# Explicitly tell Django to use the custom template
-PASSWORD_RESET_EMAIL_TEMPLATE_NAME = 'dj_rest_auth/password_reset_email.html'
 
 
 AUTHENTICATION_BACKENDS = (
