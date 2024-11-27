@@ -56,6 +56,11 @@ INSTALLED_APPS = [
     'rest_framework',  # For Django REST Framework API URLs
     'drf_yasg', # To generate swagger & redo docs
     'corsheaders', # To allow React app (running on a different port, e.g., localhost:3000) to communicate with Django backend (which might be running on localhost:8000), you need to configure CORS
+    'rest_framework.authtoken',  # Required for token-based authentication
+    'dj_rest_auth',
+    'allauth',
+    'allauth.account',  # Required for user registration
+    'allauth.socialaccount',  # Required for social login (optional)
 ]
 
 SITE_ID = 1
@@ -70,6 +75,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 # Allow All Origins (For Development)
@@ -101,6 +107,31 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Core.wsgi.application'
+
+# Email as the default username field
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+
+# Automatically confirm email (optional)
+ACCOUNT_EMAIL_VERIFICATION = 'optional'  # Options: "mandatory", "optional", or "none"
+
+# Redirect after login/logout (customize as needed)
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+
+# Add token authentication and optionally JWT
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # Token-based auth
+        'rest_framework_simplejwt.authentication.JWTAuthentication',  # Optional: JWT
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',  # Require authentication by default
+    ],
+}
+
 
 
 # Database
