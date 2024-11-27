@@ -141,8 +141,9 @@ else:
 
 #For password reset email
 DJANGO_REST_AUTH = {
-    'PASSWORD_RESET_CONFIRM_URL': 'password-reset/confirm/{uid}/{token}/',
+    'PASSWORD_RESET_CONFIRM_URL': 'https://web-frontend-template-eta.vercel.app/password-reset/confirm/{uid}/{token}/',
 }
+
 
 
 
