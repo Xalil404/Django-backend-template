@@ -22,7 +22,7 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 # for password reset
-from django.contrib.auth.views import PasswordResetView
+from dj_rest_auth.views import PasswordResetView, PasswordResetConfirmView
 
 
 
@@ -44,7 +44,8 @@ urlpatterns = [
     path('', include('home.urls')),
     path('auth/', include('dj_rest_auth.urls')),  # Login/logout/password reset
     path('auth/registration/', include('dj_rest_auth.registration.urls')),  # Registration
-    path('auth/password/reset/', PasswordResetView.as_view(email_template_name='password_reset_email.html'), name='password_reset'),
+    path('auth/password/reset/', PasswordResetView.as_view(), name='password_reset'),  # Password reset request
+    path('auth/password/reset/confirm/<uidb64>/<token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),  # Password reset confirm
     path('api/', include('Contact.urls')),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
